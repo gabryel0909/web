@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% block title %}Deletar Postagem{% endblock %}
+{% block content %}
+<div class="w-100 mx-auto m-auto h-auto p-5 px-5 row rows sticky-bottom text-center bg-dark container-fluid ">
+    <div class="col">
+    <form method="post" class=" w-100 container-xxl s">
+    {% csrf_token %}
+    <p class="">Deseja deletar esse post ?</p>
+    <button class="btn btn-primary"type="submit">Deletar</button>
+    </form> 
+    
+</div>
+{% endblock content %}

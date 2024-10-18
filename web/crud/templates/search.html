@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+
+{% block title %}resultados{% endblock %}
+
+{% block content %}
+    
+    {% if search %}
+    <h1>{{search}}</h1>
+    {%if result %}
+    {% for result in result %}
+    <div class="bg-dark card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{result.imagem.url}}" class="img-fluid rounded-start" alt="{{result.titulo}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{result.titulo}}</h5>
+              <a class="btn btn-dark card-link" href="{% url 'post-detail' result.id %}" >ver mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+      {% endif %}
+      {% else %}
+      <h1>nao encontrado</h1>
+    {% endif %}
+{%endblock%}

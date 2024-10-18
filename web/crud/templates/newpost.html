@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+
+{% block title %}Lista Postagens{% endblock %}
+
+{% block content %}
+
+  {% for post in posts %}
+  <div class="bg-dark card mb-3" style="max-width: 540px;">
+	<div class="row g-0">
+	  <div class="col-md-4">
+		<img src="{{post.imagem.url}}" class="img-fluid rounded-start" alt="{{post.titulo}}">
+	  </div>
+	  <div class="col-md-8">
+		<div class="card-body">
+		  <h5 class="card-title">{{post.titulo}}</h5>
+		  <p class="card-text">{{post.description}}</p>
+		  <p class="card-text"><small class="text-muted">{{post.create_at}}</small></p>
+          <a class="btn btn-dark card-link" href="{% url 'post-detail' post.id %}" >ver</a>
+		</div>
+	  </div>
+	</div>
+  </div>
+  {% endfor %} 
+  {% endblock content %}
